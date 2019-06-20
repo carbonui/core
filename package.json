@@ -1,0 +1,33 @@
+{
+	"name": "@carbonui/core",
+	"version": "0.1.0",
+	"description": "Project description here.",
+	"main": "js/main",
+	"types": ".d.ts/main",
+	"scripts": {
+		"build": "gulp && jest",
+		"test": "jest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/CarbonUI/core.git"
+	},
+	"keywords": [
+		"ui", "user-interface", "uikit"
+	],
+	"author": "Trevor Sears <trevorsears.main@gmail.com> (http://trevorsears.io/)",
+	"license": "GPL-3.0-or-later",
+	"bugs": {
+		"url": "https://github.com/CarbonUI/core/issues"
+	},
+	"homepage": "https://github.com/CarbonUI/core#readme",
+	"devDependencies": {
+		"@types/jest": "latest",
+		"del": "latest",
+		"gulp": "latest",
+		"gulp-sourcemaps": "latest",
+		"gulp-typescript": "latest",
+		"gulp-uglify-es": "latest",
+		"jest": "latest"
+	}
+}
