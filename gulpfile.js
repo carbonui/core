@@ -86,25 +86,43 @@ function buildJavaScriptPipeline(done) {
 	
 	return gulp.series(
 		compileTypeScript,
-		uglifyJavaScript
+		// uglifyJavaScript
 	)(done);
 	
 }
 
 function compileTypeScript(done) {
 	
-	return typescriptProject.src()
-		.pipe(sourcemaps.init())
-		.pipe(typescriptProject()).js
-		.pipe(sourcemaps.write("."))
-		.pipe(gulp.dest(paths.javascript.dir));
+	let proj =
+		typescriptProject.src()
+			.pipe(sourcemaps.init())
+			.pipe(typescriptProject());
+	
+	let compileJS = (done) => {
+		
+		return proj.js
+			.pipe(sourcemaps.write("."))
+			.pipe(gulp.dest(paths.javascript.dir));
+		
+	};
+	
+	let compileDTS = (done) => {
+		
+		return proj.dts
+			.pipe(gulp.dest(paths.typedefs.dir));
+		
+	};
+	
+	return gulp.parallel(compileJS, compileDTS)(done);
 	
 }
 
 function uglifyJavaScript(done) {
 
 	return gulp.src(paths.javascript.allFiles)
+		.pipe(sourcemaps.init({ loadMaps: true }))
 		.pipe(uglify())
+		.pipe(sourcemaps.write("."))
 		.pipe(gulp.dest(paths.javascript.dir));
 
 }

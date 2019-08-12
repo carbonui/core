@@ -13,14 +13,23 @@
 		"url": "git+https://github.com/CarbonUI/core.git"
 	},
 	"keywords": [
-		"ui", "user-interface", "uikit"
+		"ui",
+		"user-interface",
+		"uikit"
 	],
 	"author": "Trevor Sears <trevorsears.main@gmail.com> (http://trevorsears.io/)",
 	"license": "GPL-3.0-or-later",
 	"bugs": {
 		"url": "https://github.com/CarbonUI/core/issues"
 	},
-	"homepage": "https://github.com/CarbonUI/core#readme",
+	"homepage": "https://carbonui.io/",
+	"dependencies": {
+		"@jsdsl/action-queue": "^0.1.0",
+		"@jsdsl/locking-queue": "^0.1.0",
+		"avents": "^0.1.0",
+		"iter-over": "^1.4.0",
+		"millennium": "^0.1.1"
+	},
 	"devDependencies": {
 		"@types/jest": "latest",
 		"del": "latest",
@@ -28,6 +37,7 @@
 		"gulp-sourcemaps": "latest",
 		"gulp-typescript": "latest",
 		"gulp-uglify-es": "latest",
-		"jest": "latest"
+		"jest": "latest",
+		"typescript": "latest"
 	}
 }
