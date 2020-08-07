@@ -24,20 +24,21 @@
 	},
 	"homepage": "https://carbonui.io/",
 	"dependencies": {
-		"@jsdsl/action-queue": "^0.1.0",
-		"@jsdsl/locking-queue": "^0.1.0",
 		"avents": "^0.1.0",
-		"iter-over": "^1.4.0",
+		"iter-over": "^1.5.1",
+		"merj": "^0.3.0",
 		"millennium": "^0.1.1"
 	},
 	"devDependencies": {
-		"@types/jest": "latest",
-		"del": "latest",
+		"@types/jest": "^24.0.23",
+		"del": "^5.1.0",
 		"gulp": "latest",
 		"gulp-sourcemaps": "latest",
-		"gulp-typescript": "latest",
-		"gulp-uglify-es": "latest",
-		"jest": "latest",
-		"typescript": "latest"
+		"gulp-typescript": "^6.0.0-alpha.1",
+		"gulp-uglify-es": "^2.0.0",
+		"gulp-webserver": "^0.9.1",
+		"jest": "^24.9.0",
+		"tslint": "latest",
+		"typescript": "^3.7.2"
 	}
 }

@@ -8,6 +8,7 @@ const gulp = require("gulp");
 const typescript = require("gulp-typescript");
 const sourcemaps = require("gulp-sourcemaps");
 const uglify = require("gulp-uglify-es").default;
+const webserver =	require("gulp-webserver");
 const del = require("del");
 
 const paths = {
@@ -34,11 +35,18 @@ const paths = {
 		dir: ".d.ts/",
 		allFiles: ".d.ts/**/*.d.ts"
 		
+	},
+	
+	tests: {
+		
+		dir: "ts/tests/",
+		index: "ts/tests/index.html"
+		
 	}
 	
 };
-
 let typescriptProject = typescript.createProject(paths.typescript.tsconfig);
+let devServerPort = 3200;
 
 // The default Gulp task.
 gulp.task("default", defaultTask);
@@ -54,6 +62,9 @@ gulp.task("rebuild", rebuild);
 
 // Watch for changes to relevant files and compile-on-change.
 gulp.task("watch", watch);
+
+// Start a local webserver to access and view the test pages.
+gulp.task("server", server);
 
 function defaultTask(done) {
 
@@ -130,5 +141,20 @@ function uglifyJavaScript(done) {
 function watch(done) {
 	
 	gulp.watch([paths.typescript.allFiles], buildJavaScriptPipeline);
+	
+}
+
+function server(done) {
+	
+	let port = devServerPort;
+	
+	gulp.src(paths.tests.dir)
+	.pipe(webserver({
+		host: "0.0.0.0",
+		port,
+		// livereload: true,
+		directoryListing: true,
+		open: "http://localhost:" + port + "/index.html"
+	}));
 	
 }
