@@ -1,5 +1,5 @@
 # CarbonUI Core
-Paragraph of project description here.
+The CarbonUI core library.
 
 ### [Find CarbonUI Core on NPM.](https://www.npmjs.com/package/@carbonui/core)
 
